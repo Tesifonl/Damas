@@ -28,7 +28,7 @@ public class Consola {
 		do {
 		mostrarMenu();
 		opcion=Entrada.entero();
-		}while(opcion<1 || opcion>24);
+		}while(opcion<1 || opcion>4);
 		return opcion;
 	}
 	

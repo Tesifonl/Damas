@@ -51,17 +51,19 @@ public class MainApp {
 	
 	private static void mover() {
 		
+		if (dama!=null){
+			Direccion direccionEleccion=Consola.elegirDireccion();
+			int pasosEleccion=Consola.elegirPasos();
 	
-		Direccion direccionEleccion=Consola.elegirDireccion();
-		int pasosEleccion=Consola.elegirPasos();
-	
-		try {
-			dama.mover(direccionEleccion, pasosEleccion);
-			System.out.println("Movimiento realizado con exito:  "+dama.getColor()+" , "+dama.getPosicion());
-		} catch (OperationNotSupportedException e) {
-			System.out.println(e.getMessage());
+			try {
+				dama.mover(direccionEleccion, pasosEleccion);
+				System.out.println("Movimiento realizado con exito:  "+dama.getColor()+" , "+dama.getPosicion());
+			} catch (IllegalArgumentException | OperationNotSupportedException |NullPointerException e) {
+				System.out.println(e.getMessage());
+			}
+		}else{
+			System.out.println("Debes crear antes la dama");
 		}
-		
 
 	}	
 	
